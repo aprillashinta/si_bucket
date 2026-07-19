@@ -7,6 +7,8 @@ import '../../screens/cart/cart_screen.dart';
 import '../../screens/product/detail_product_screen.dart';
 import '../../services/cart_service.dart';
 import '../../services/home_service.dart';
+import '../order/order_history_screen.dart';
+import '../profile/profile_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -785,20 +787,25 @@ class _HomeScreenState extends State<HomeScreen> {
               break;
 
             case 2:
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text("Halaman Pesanan akan dibuat berikutnya"),
-                ),
+              await Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const OrderHistoryScreen()),
               );
+
+              loadData();
               break;
 
             case 3:
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text("Halaman Profil akan dibuat berikutnya"),
-                ),
+              await Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const ProfileScreen()),
               );
               break;
+            // case 3:
+            //   ScaffoldMessenger.of(context).showSnackBar(
+            //     const SnackBar(content: Text("Profile sedang dikembangkan")),
+            //   );
+            //   break;
           }
         },
         items: const [

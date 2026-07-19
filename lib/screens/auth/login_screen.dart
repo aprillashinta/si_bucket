@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:si_bucket/screens/home/home_screen.dart';
 import 'package:si_bucket/services/auth_service.dart';
+import 'register_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -152,7 +153,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     //     ),
                     //   ),
                     // ),
-
                     const SizedBox(height: 10),
 
                     Container(
@@ -203,7 +203,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     //     ),
                     //   ),
                     // ),
-
                     const SizedBox(height: 10),
 
                     Container(
@@ -320,14 +319,15 @@ class _LoginScreenState extends State<LoginScreen> {
                           style: GoogleFonts.poppins(),
                         ),
                         TextButton(
-                          onPressed: () {},
-                          child: Text(
-                            "Create Account",
-                            style: GoogleFonts.poppins(
-                              color: const Color(0xffEC407A),
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => const RegisterScreen(),
+                              ),
+                            );
+                          },
+                          child: const Text("Daftar"),
                         ),
                       ],
                     ),
