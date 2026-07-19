@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'screens/auth/login_screen.dart';
+// import 'screens/auth/login_screen.dart';
+import 'screens/splash_screen.dart';
 
 void main() {
   runApp(const SiBucketApp());
@@ -84,7 +85,8 @@ class SiBucketApp extends StatelessWidget {
         ),
       ),
 
-      home: const LoginScreen(),
+      // home: const LoginScreen(),
+      home: const SplashScreen(),
     );
   }
 }

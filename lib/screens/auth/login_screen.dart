@@ -141,17 +141,17 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
 
-                    const SizedBox(height: 35),
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        "Email",
-                        style: GoogleFonts.poppins(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 15,
-                        ),
-                      ),
-                    ),
+                    // const SizedBox(height: 35),
+                    // Align(
+                    //   alignment: Alignment.centerLeft,
+                    //   child: Text(
+                    //     "Email",
+                    //     style: GoogleFonts.poppins(
+                    //       fontWeight: FontWeight.w600,
+                    //       fontSize: 15,
+                    //     ),
+                    //   ),
+                    // ),
 
                     const SizedBox(height: 10),
 
@@ -191,18 +191,18 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
 
-                    const SizedBox(height: 25),
+                    // const SizedBox(height: 25),
 
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        "Password",
-                        style: GoogleFonts.poppins(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 15,
-                        ),
-                      ),
-                    ),
+                    // Align(
+                    //   alignment: Alignment.centerLeft,
+                    //   child: Text(
+                    //     "Password",
+                    //     style: GoogleFonts.poppins(
+                    //       fontWeight: FontWeight.w600,
+                    //       fontSize: 15,
+                    //     ),
+                    //   ),
+                    // ),
 
                     const SizedBox(height: 10),
 

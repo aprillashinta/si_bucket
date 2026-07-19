@@ -1,6 +1,7 @@
 class ProductModel {
   final int id;
   final int categoryId;
+  final String categoryName;
   final String name;
   final String description;
   final int price;
@@ -10,6 +11,7 @@ class ProductModel {
   ProductModel({
     required this.id,
     required this.categoryId,
+    required this.categoryName,
     required this.name,
     required this.description,
     required this.price,
@@ -21,6 +23,7 @@ class ProductModel {
     return ProductModel(
       id: json["id"],
       categoryId: json["category_id"],
+      categoryName: json["category"]?["name"] ?? "",
       name: json["name"],
       description: json["description"] ?? "",
       price: json["price"],
