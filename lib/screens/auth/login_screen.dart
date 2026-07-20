@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:si_bucket/screens/home/home_screen.dart';
 import 'package:si_bucket/services/auth_service.dart';
 import 'register_screen.dart';
+import '../admin/admin_dashboard_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -41,12 +42,21 @@ class _LoginScreenState extends State<LoginScreen> {
     if (result["success"] == true) {
       await authService.saveToken(result["token"]);
 
+      final role = result["data"]["role"];
+
       if (!mounted) return;
 
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (_) => const HomeScreen()),
-      );
+      if (role == "admin") {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (_) => const AdminDashboardScreen()),
+        );
+      } else {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (_) => const HomeScreen()),
+        );
+      }
     } else {
       if (!mounted) return;
 
