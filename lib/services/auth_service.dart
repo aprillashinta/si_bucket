@@ -7,8 +7,8 @@ import 'api_service.dart';
 
 class AuthService {
   Future<Map<String, dynamic>> login(
-  String email,
-  String password,
+    String email,
+    String password,
   ) async {
     final response = await http.post(
       Uri.parse("${ApiService.baseUrl}/users/login"),
@@ -20,9 +20,6 @@ class AuthService {
         "password": password,
       }),
     );
-
-    // print("STATUS : ${response.statusCode}");
-    // print("BODY   : ${response.body}");
 
     return jsonDecode(response.body);
   }
@@ -51,6 +48,10 @@ class AuthService {
     return jsonDecode(response.body);
   }
 
+  // ===========================
+  // TOKEN
+  // ===========================
+
   Future<void> saveToken(String token) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString("token", token);
@@ -61,8 +62,28 @@ class AuthService {
     return prefs.getString("token");
   }
 
+  // ===========================
+  // ROLE
+  // ===========================
+
+  Future<void> saveRole(String role) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString("role", role);
+  }
+
+  Future<String?> getRole() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getString("role");
+  }
+
+  // ===========================
+  // LOGOUT
+  // ===========================
+
   Future<void> logout() async {
     final prefs = await SharedPreferences.getInstance();
+
     await prefs.remove("token");
+    await prefs.remove("role");
   }
 }

@@ -41,6 +41,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
     if (result["success"] == true) {
       await authService.saveToken(result["token"]);
+      await authService.saveRole(result["data"]["role"]);
 
       final role = result["data"]["role"];
 
