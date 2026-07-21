@@ -32,4 +32,57 @@ class AdminCategoryService {
 
     return [];
   }
+
+  Future<AdminCategoryModel?> getCategoryById(int id) async {
+    final response = await http.get(
+      Uri.parse("${ApiService.baseUrl}/admin/categories/$id"),
+      headers: await _headers(),
+    );
+
+    final json = jsonDecode(response.body);
+
+    if (json["success"] == true) {
+      return AdminCategoryModel.fromJson(json["data"]);
+    }
+
+    return null;
+  }
+
+  Future<bool> createCategory(AdminCategoryModel category) async {
+    final response = await http.post(
+      Uri.parse("${ApiService.baseUrl}/admin/categories"),
+      headers: await _headers(),
+      body: jsonEncode(category.toJson()),
+    );
+
+    final json = jsonDecode(response.body);
+
+    return json["success"] == true;
+  }
+
+  Future<bool> updateCategory(
+    int id,
+    AdminCategoryModel category,
+  ) async {
+    final response = await http.put(
+      Uri.parse("${ApiService.baseUrl}/admin/categories/$id"),
+      headers: await _headers(),
+      body: jsonEncode(category.toJson()),
+    );
+
+    final json = jsonDecode(response.body);
+
+    return json["success"] == true;
+  }
+
+  Future<bool> deleteCategory(int id) async {
+    final response = await http.delete(
+      Uri.parse("${ApiService.baseUrl}/admin/categories/$id"),
+      headers: await _headers(),
+    );
+
+    final json = jsonDecode(response.body);
+
+    return json["success"] == true;
+  }
 }
