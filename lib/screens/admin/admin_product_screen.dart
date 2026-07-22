@@ -133,8 +133,35 @@ class _AdminProductScreenState extends State<AdminProductScreen> {
                     elevation: 2,
                     margin: const EdgeInsets.only(bottom: 12),
                     child: ListTile(
-                      leading: const CircleAvatar(
-                        child: Icon(Icons.inventory_2),
+                      leading: ClipRRect(
+                        borderRadius: BorderRadius.circular(12),
+                        child: product.image.isNotEmpty
+                            ? Image.network(
+                                "http://localhost:3000${product.image}",
+                                width: 60,
+                                height: 60,
+                                fit: BoxFit.cover,
+                                errorBuilder: (context, error, stackTrace) {
+                                  return Container(
+                                    width: 60,
+                                    height: 60,
+                                    color: Colors.grey.shade200,
+                                    child: const Icon(
+                                      Icons.broken_image,
+                                      color: Colors.grey,
+                                    ),
+                                  );
+                                },
+                              )
+                            : Container(
+                                width: 60,
+                                height: 60,
+                                color: Colors.grey.shade200,
+                                child: const Icon(
+                                  Icons.image,
+                                  color: Colors.grey,
+                                ),
+                              ),
                       ),
                       title: Text(
                         product.name,

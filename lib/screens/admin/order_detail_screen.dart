@@ -165,7 +165,7 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                 const SizedBox(height: 8),
 
                 DropdownButtonFormField<String>(
-                  value: selectedStatus,
+                  initialValue: selectedStatus,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),

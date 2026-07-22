@@ -174,7 +174,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
           child: Column(
             children: [
               DropdownButtonFormField<int>(
-                value: selectedCategory,
+                initialValue: selectedCategory,
                 decoration: inputDecoration("Kategori"),
                 items: categories.map((category) {
                   return DropdownMenuItem<int>(
